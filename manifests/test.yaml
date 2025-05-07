@@ -1,0 +1,24 @@
+apiVersion: deployments.plural.sh/v1alpha1
+kind: GitRepository
+metadata:
+  name: sre-bench
+  namespace: default
+spec:
+  url: https://github.com/pluralsh/sre-bench-impl.git
+---
+apiVersion: deployments.plural.sh/v1alpha1
+kind: ServiceDeployment
+metadata:
+  name: sre-bench-setup
+  namespace: default
+spec:
+  namespace: sre-bench
+  git:
+    branch: main
+    folder: cases/invalid-secret-ref
+  repositoryRef:
+    name: sre-bench
+    namespace: infra
+  clusterRef:
+    name: lukasz
+    namespace: default
