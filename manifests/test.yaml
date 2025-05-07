@@ -14,7 +14,7 @@ metadata:
 spec:
   namespace: sre-bench
   git:
-    ref: main
+    branch: main
     folder: cases/invalid-secret-ref
   repositoryRef:
     name: sre-bench
